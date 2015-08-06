@@ -1,0 +1,93 @@
+---
+title: "Regression Models Course Notes"
+author: "LYU Daliang"
+date: "August 6, 2015"
+output: html_document
+---
+
+## The empirical **variance**
+
+$$
+\begin{eqnarray*}
+Var(X)
+ & = & \frac{1}{n - 1}\sum_{i = 1}^n(X_i - \bar X)^2\\
+ & = & \frac{1}{n - 1}\sum_{i = 1}^n(X_i^2 - 2X_i\bar X + \bar X^2)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_i^2 - 2\bar X\sum_{i = 1}^nX_i + \sum_{i = 1}^n\bar X^2\right)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_i^2 - 2\bar Xn\bar X + n\bar X^2\right)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_i^2 - 2n\bar X^2 + n\bar X^2\right)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_i^2 - n\bar X^2\right)
+\end{eqnarray*}
+$$
+
+## The empirical **standard deviation**
+
+$$
+Sd(X) = \sqrt {Var(X)}
+$$
+
+## The empirical **covariance**
+
+$$
+\begin{eqnarray*}
+Cov(X, Y) 
+ & = & \frac{1}{n - 1}\sum_{i = 1}^n(X_i - \bar X)(Y_i - \bar Y)\\
+ & = & \frac{1}{n - 1}\sum_{i = 1}^n(X_iY_i - X_i\bar Y  - \bar XY_i + \bar X\bar Y)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_iY_i - \bar Y\sum_{i = 1}^nX_i - \bar X\sum_{i = 1}^nY_i + \sum_{i = 1}^n\bar X\bar Y\right)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_iY_i - \bar Yn\bar X - \bar Xn\bar Y + n\bar X\bar Y\right)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_iY_i - n\bar X\bar Y - n\bar X\bar Y + n\bar X\bar Y\right)\\
+ & = & \frac{1}{n - 1}\left(\sum_{i = 1}^nX_iY_i - n\bar X\bar Y\right)
+\end{eqnarray*}
+$$
+
+## The **correlation**
+
+$$
+Cor(X, Y) = \frac{Var(X, Y)}{Sd(X)Sd(Y)}
+$$
+
+## The linear equation
+
+$$
+Y = \beta_0 + \beta_1X
+$$
+
+$$
+\hat\beta_1 = Cor(Y, X)\frac{Sd(Y)}{Sd(X)}
+$$
+
+$$
+\hat\beta_0 = \bar Y - \beta_1\bar X
+$$
+
+To go further:
+
+$$
+\begin{eqnarray*}
+\hat\beta_1 
+ & = & Cor(Y, X)\frac{Sd(Y)}{Sd(X)}\\
+ & = & \frac{Cov(Y, X)}{Sd(X)Sd(Y)}\frac{Sd(Y)}{Sd(X)}\\
+ & = & \frac{Cov(Y, X)}{Sd(X)^2}\\
+ & = & \frac{Cov(Y, X)}{Var(X)}\\
+ & = & \frac{\frac{1}{n - 1}\left(\sum_{i = 1}^nX_iY_i - n\bar X\bar Y\right)}{\frac{1}{n - 1}\left(\sum_{ i = 1}^nX_i^2 - n\bar X^2\right)}\\
+ & = & \frac{\sum_{i = 1}^nX_iY_i - n\bar X\bar Y}{\sum_{ i = 1}^nX_i^2 - n\bar X^2}
+ \end{eqnarray*}
+$$
+
+Even further:
+
+$$
+\begin{eqnarray*}
+\hat\beta_1 
+ & = & \frac{\sum_{i = 1}^nX_iY_i - n\bar X\bar Y}{\sum_{ i = 1}^nX_i^2 - n\bar X^2}\\
+  & = & \frac{\sum_{i = 1}^nX_iY_i - n\frac{\sum_{i = 1}^nX_i}{n}\frac{\sum_{i = 1}^nY_i}{n}}{\sum_{ i = 1}^nX_i^2 - n\left(\frac{\sum_{i = 1}^nX_i}{n}\right)^2}\\
+  & = & \frac{n\sum_{i = 1}^nX_iY_i - \sum_{i = 1}^nX_i\sum_{i = 1}^nY_i}{n\sum_{ i = 1}^nX_i^2 - \left(\sum_{i = 1}^nX_i\right)^2}
+\end{eqnarray*}
+$$
+
+> Note: for **centered** data, both $\bar X$ and $\bar Y$ are 0; for scaled and normalized data, both $Sd(X)$ and $Sd(Y)$ are 1.
+ 
+## The linear model through the origin
+
+When fitting a linear model, y ~ x - 1 specifies a line through the origin. A model with no intercept can be also specified as y ~ x + 0 or y ~ 0 + x.
+
+(To be continued...)
