@@ -1,0 +1,17 @@
+## The linear model through the origin
+
+### The formula
+
+When fitting a linear model, y ~ x - 1 specifies a line through the origin. A model with no intercept can be also specified as y ~ x + 0 or y ~ 0 + x.
+
+### A sample
+
+```{r message=FALSE}
+library(UsingR)
+data(galton)
+x <- galton$child
+y <- galton$parent
+lm(y ~ x)
+lm(y ~ x - 1)
+lm(y ~ x + 0)
+```
