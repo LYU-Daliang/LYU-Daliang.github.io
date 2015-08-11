@@ -1,0 +1,16 @@
+## How to fill areas under a curve?
+
+I've benn wondering how to draw a plot like this:
+
+![sample plot](./images/plot.png)
+
+And finally I got it:
+
+```{r}
+x <- c(-.5, 0, 1, 1, 1.5)
+y <- c(0, 0, 2, 0, 0)
+plot(x, y, type = 'l', lwd = 2, frame = FALSE)
+polygon(c(seq(0, .75, length = 100), rev(seq(0, .75, length = 100))),
+        c(seq(0, 1.5, length = 100), rep(0, 100)),
+        col = 'lightblue', lwd = 2)
+```
