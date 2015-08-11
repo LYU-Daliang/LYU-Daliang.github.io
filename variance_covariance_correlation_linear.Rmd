@@ -38,7 +38,7 @@ $$
 ### The **correlation**
 
 $$
-Cor(X, Y) = \frac{Var(X, Y)}{Sd(X)Sd(Y)}
+Cor(X, Y) = \frac{Cov(X, Y)}{Sd(X)Sd(Y)}
 $$
 
 ### The linear equation
