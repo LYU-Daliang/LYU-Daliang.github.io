@@ -1,0 +1,82 @@
+## Bayes' Rule and DLR
+
+### Bayes' Rule
+
+$$
+\begin{eqnarray*}
+P(B|A)
+ & = & \frac{P(A|B)P(B)}{P(A)}\\
+ & = & \frac{P(A|B)P(B)}{P(A|B)P(B) + P(A|B^c)P(B^c)}\\
+ & = & \frac{P(A|B)P(B)}{P(A|B)P(B) + (1 - P(A^c|B^c))(1 - P(B))}
+\end{eqnarray*}
+$$
+
+In fact:
+
+$$
+P(A|B)P(B) = P(A\cap B) = P(B|A)P(A)
+$$
+
+### Diagnostic likelihood ratio
+
+Let `D` be the event that a patient has a desease, e.g., HIV, and let `+` indicate a positive result and `-` a negative. Then, the expression $P(D|+)$ is called the **positive predictive value**, while $P(D^c|-)$ is called the **negative predictive value**.
+
+The **diagnostic likelihood ratio** of a positive test, $DLR_+$, is the ratio of the two `+` conditional probabilities, one given the presence of disease and the other given the absence. Specifically, $DLR_+ = \frac{P(+|D)}{P(+|D^c)}$. 
+
+Similarly, the $DLR_-$ is defined as the ratio of two `-` conditional probabilities, i.e., $DLR_- = \frac{P(-|D)}{P(-|D^c)}$.
+
+Since $P(+|D)$ and $P(-|D^c)$ are accuracy rates of a diagnostic test for the two possible results - they are also known as test **sensitivity** and **specificity** respectively - they should be close to 1. As to $DLR_+$, the numerator is test sensitivity and the denomenator is the complement of test specifity, so we expect it to be large. On the contrary, the numerator of $DLR_-$ is the complement of test sensitivity, and the denomenator is test specifity, and we expect it to be much smaller.
+
+Using Bayes' Rule:
+
+$$
+{P(D|+)} = \frac{P(+|D)P(D)}{P(+)}
+$$
+
+$$
+{P(D^c|+)} = \frac{P(+|D^c)P(D^c)}{P(+)}
+$$
+
+Dividing these two equations, we have:
+
+$$
+\frac{P(D|+)}{P(D^c|+)} = \frac{P(+|D)}{P(+|D^c)}\times\frac{P(D)}{P(D^c)}
+$$
+
+$$
+\frac{P(D|+)}{P(D^c|+)} = DLR_+\times\frac{P(D)}{P(D^c)}
+$$
+
+The left side of the equation represents the post-test odds of disease given a positive test result.
+
+$$
+\mbox{post-test odds of disease} = DLR_+\times\mbox{pre-test odds of disease}
+$$
+
+In other words, the post test odds of disease is the pretest odds of disease times the $DLR_+$.
+
+Similarly:
+
+$$
+{P(D|-)} = \frac{P(-|D)P(D)}{P(-)}
+$$
+
+$$
+{P(D^c|-)} = \frac{P(-|D^c)P(D^c)}{P(-)}
+$$
+
+$$
+\frac{P(D|-)}{P(D^c|-)} = \frac{P(-|D)}{P(-|D^c)}\times\frac{P(D)}{P(D^c)}
+$$
+
+$$
+\frac{P(D|-)}{P(D^c|-)} = DLR_-\times\frac{P(D)}{P(D^c)}
+$$
+
+$$
+\mbox{post-test odds of disease} = DLR_-\times\mbox{pre-test odds of disease}
+$$
+
+So, $DLR_-$ relates the decrease in the odds of the disease after a negative test result to the odds of disease prior to the test.
+
+(THE END)

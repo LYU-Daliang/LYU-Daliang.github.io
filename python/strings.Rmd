@@ -1,0 +1,63 @@
+## Strings in Python
+
+From [*Automate the Boring Stuff with Python*](https://automatetheboringstuff.com/). 
+
+### Raw Strings
+
+A *raw string* completely ignores all escape characters and prints any backslash that appear in the string. You can place a `r` before the beginning quotation mark of a string to make it a raw string.
+
+### Multiline Strings with Triple Quotes
+
+A multiline string is ofter used for comments that span multiple lines.
+
+### The `in` and `not in` Operators with Strings
+
+### Useful String Methods
+
+* `upper()`
+* `lower()`
+* `isupper()`
+* `islower()`
+
+Note that these methods do not change the string itself but return new string values.
+
+* `isalpha()`
+* `isalnum()`
+* `isdecimal()`
+* `isspace()` - returns `True` if the string consists only of spaces, tabs, and new-lines and is not blank.
+* `istitle()` - returns `True` if the string consists only of words that begin with an uppercase letter followed by only lowercase letters.
+
+* `startswith()`
+* `endswith()`
+
+* `join()`
+* `split()`
+
+The `jont()` method is called on a string, gets passed a list of strings, and returns a string that is the concatenation of each string in the passed-in list. Notice that the string `join()` calls on is inserted between each string of the list arguments. 
+
+The `split()` method does the opposite: it's called on a string value and returns a list of strings. By default, the string `split()` calls on is split whenever whitespace characters such as the space, tab, or newline characters are found. These whitespace characters are not included in the strings in the returned list. You can pass a delimiter string to the `split()` method (within the parentheses) to specify a different string to split upon.
+
+* `ljust()`
+* `rjust()`
+* `center()`
+
+The `ljust()` and `rjust()` string methods return a padded version of the string they are called on. The first argument to both methods is a interger length for the justified string. An optional second argument to `ljust()` and `rjust()` will specify a fill character (the default is spaces).
+
+The `center()` string method works like `ljust()` and `rjust()` but centers the text rather than justifying it to the left or right.
+
+* `strip()`
+* `lstrip()`
+* `rstrip()`
+
+Optionally, a string argument will specify which characters on the ends should be stripped (by default, they are whitespaces, i.e., spaces, tabs, and newlines). **NOTE**: the order of the characters in the string passed to `strip()`does not matter.
+
+### Copying and Pasting Strings with the `pyperclip` Module
+
+```
+import pyperclip
+pyperclip.copy(<text to be copied>)
+pyperclip.paste()
+```
+
+(THE END)
+

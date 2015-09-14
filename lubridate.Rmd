@@ -1,0 +1,57 @@
+## `lubridate`
+
+```{r, echo=FALSE}
+library(lubridate)
+```
+
+### `Sys.getlocale()` and `Sys.setlocale()`
+
+* `Sys.getlocale(category = 'LC_ALL')`
+* `Sys.setlocale(category = 'LC_TIME', locale = 'en.US.UTF-8')`
+
+### `today()`
+
+### `year()`, `month()`, `day()` and `wday()`
+
+* `year(today())`
+* `month(today())`
+* `day(today())`
+* `wday(today(), label = TRUE)`
+
+### `now()`
+
+* `now()` - get current date and time
+* `now(tzone = 'America/New_York')`
+
+> For a complete list of valid time zones for use with `lubridate`, check out the following Wikipedia page: [time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+### `hour()`, `minute()` and `second()`
+
+* `hour(now())`
+* `minute(now())`
+* `second(now())`
+
+### `ymd()`, `dmy()`, `hms()` and `ymd_hms()`
+
+* `mdy('March 12, 1975')`
+* `dmy(25081985)` - to parse a numeric, leave off the quotes
+* `mdy('June 17, 2008', tz = 'Singapore')` - specify the time zone
+
+### `update()`
+
+* `update(now(), hours = 12, minutes = 15)` - modify part of a date-time object
+
+### Use arithmetic operators on dates and times
+
+* `now() + days(2) + hours(15) + minutes(50)`
+
+### `with_tz()`
+
+* `with_tz(now(tzone = 'Asia/Hong_Kong'), tzone = 'America/New_York')`
+
+### `new_interval()` and `as.period()`
+
+* `new_interval(ymd(20140421), today())`
+* `as.period(new_interval(ymd(20140421), today()), units = 'days')`
+
+(THE END)

@@ -1,0 +1,52 @@
+## Common distributions
+
+### $X \sim Bernoulli(p)$
+
+The PMF is $P(X = x) = p^x(1 - p)^{1 - x}$, the mean is $p$, and the variance is $p(1 - p)$.
+
+### Binomial trials
+
+The binomial mass function is:
+$$
+P(X = x) = 
+\left(
+\begin{array}{c}
+ n \\ x
+\end{array}
+\right)
+p^x(1 - p)^{n - x}
+$$
+where $x = 0, \ldots, n$.
+
+### The normal distribution
+
+A random variable is said to follow a **normal** or **Gaussian** distribution with mean $\mu$ and variance $\sigma^2$ if the associated density is:
+$$
+(2\pi\sigma^2)^{-\frac{1}{2}}e^\frac{-(x - \mu)^2}{2\sigma^2}.
+$$
+
+If $X\sim N(\mu, \sigma^2)$, then:
+$$
+Z = \frac{X - \mu}{\sigma}\sim N(0, 1).
+$$
+
+If Z is standard normal:
+$$
+X = \mu + \sigma Z \sim N(\mu, \sigma^2)
+$$
+
+We can use these facts to answer questions about non-standard normals by relating them back to the standard normals.
+
+### The Poisson distribution
+
+The Poisson mass function is:
+$$
+P(X = x; \lambda) = \frac{\lambda ^x e ^{-\lambda}}{x!}
+$$
+for $x = 0, \ldots$.
+
+The mean of this distribution is $\lambda$. The variance of this distribution is also $\lambda$. If $X \sim Poisson(\lambda t)$ where $\lambda = E[\frac{X}{t}]$ is the expected count per unit of time and t is the total monitoring time.
+
+If $X \sim Binomial(n, p)$ then X is approximatly Poisson where $\lambda = np$ provided that $n$ is large and $p$ is small.
+
+(THE END)

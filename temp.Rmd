@@ -1,0 +1,7 @@
+## The Central Limit Theorem
+
+The distribution of averages of IID variables becomes that of a standard normal as the sample size increase.
+
+$$
+\frac{\bar X_n - \mu}{\frac{\sigma}{\sqrt n}} \sim N(0, 1)
+$$

@@ -1,0 +1,117 @@
+## Regular Expressions in Python
+
+From [*Automate the Boring Stuff with Python*](https://automatetheboringstuff.com/). 
+
+### Steps of using regular expressions in python
+
+1. Import the regrex module with `import re`.
+2. Create a `Regex` object with the `re.compile()` function. (Remember to use a **raw string**).
+3. Pass the string you want to search into the `Regex` object's `search()` method. This returns a `Match` object.
+4. Call the `Match` object's `group()` method to return a string of the actual matched text.
+
+### Grouping with Parentheses `()`
+
+Adding parentheses will create *groups* in the regex, then you can use the `group()` match object method to grab the matching text from just one group.
+
+* `group()` - return the entire matched text
+* `group(0)` - same as `group()`
+* `group(n)` - to grab the $n^{th}$ part of the matched text
+* `groups()` - to retrieve all the groups at once (return a tuple)
+
+If you need to match a parenthesis in your text, you nead to escape the `(` and `)` characters with a backslash.
+
+### Matching Multiple Groups with the Pipe `|`
+
+If you need to match an actual pipe character, escape it with a backslash, like `\|`.
+
+### Optional Matching with the Question Mark `?`
+
+The `?` flags the part that precedes it as an optional one of the pattern. 
+
+If the optional part is within parentheses, it does form a group, even it has no match in the searched text. 
+
+### Matching Zero or More with the Star `*`
+
+### Matching One or More with the Plus `+`
+
+### Matching Specific Repetitions with Curly Brackets `{}`
+
+* `{n}` - match exactly `n` times
+* `{m,n}` - match at least `m` and at most `n` times
+* `{m,}` - match `m` or more times 
+* `{,n}` - match zero to `n` times
+
+### Greedy and Nongreedy Matching
+
+Python's regular expressions are *greedy* by default, which means that in ambiguous situations they will match the longest string possible. The *non-greedy* version of the curly brackets, which match the shortest string possible, has a closing curly bracket followed by a question mark. (`?`)
+
+Note that the question mark can have two meanings in regular expressions: declaring a nongreedy match or flagging an optional group. These meanings are entirely unrelated.
+
+### The `findall()` method
+
+### Character Classes
+
+* `\d` - [0-9]
+* `\w` - [0-9a-zA-Z_]
+* `\s` - any space, tab, or newline character
+* `\D` - [^0-9]
+* `\W` - [0-9a-zA-Z]
+* `\S` - any character that is not a space, tab, or newline character
+* [aeiouAEIOU] - match any vowel
+* [^aeiouAEIOU] - match any character that is not a vowel
+
+**Note that inside the square brackets, the normal regular expression symbols are not interpreted as such. This means you do not to escape the `.`, `?`, or `()` chacaters with a preceding backslash.**
+
+By placing a caret character (`^`) just after the character class's opening bracket, you can make a *negative character class*.
+
+### The Caret and Dollar Sign Characters
+
+To remember, *Carrots cost dollars.* 
+
+### The Wildcard Character `.`
+
+The `.` (a dot) character in a regular expression will match any character except for a newline.
+
+**By passing a `re.DOTALL` as the second argument to `re.compile()`, you can make the dot character match *all* characters, including the newline character.**
+
+### Matching Everything with Dot-Star `.*`
+
+If you want to match an opening angle bracket, followed by anything, followed by a closing angle bracket, your regex should be something like `<.*>`.
+
+**Note that the dot-star uses *greedy* mode, that means if you want to match the `<.*>` pattern in a string like `<something> the other things>`, you will get the whole string. To get the `<something>` exactly, you should use *nongreedy* mode by using the dot, star, and question mark (`.*?`)**
+
+### Case-insensitive Matching
+
+To make your regex case-insensitive, you can pass `re.IGNORECASE` or `re.I` as a second argument to `re.compile()`.
+
+### Substituting Strings with the `sub()` Method
+
+The `sub()` method for `Regex` objects is passed two arguments. The first argument is a string to replace any matches. The second is the string for the regular expression.
+
+**In the first argument to `sub()`, you can type `\1`, `\2`,`\3\`, and so on, to mean "Enter the text of group 1, 2, 3, and so on, in the substitution". **For example, if you want to substitute `S***` for `Secret`, you can pass the first argument as something like `\1***` with the regex like `(S)ecret`.
+
+If only one character need to be replaced, you can do it without regex:
+
+```
+<character to replace>.join(<string>.split(<character to be replaced>))
+```
+
+### Managing Complex Regrexes
+
+By passing `re.VERBOSE` as the second argument to `re.compile()`, you can enable *verbose mode* and spread the regular expression over multiple lines with comments and whitespaces which will be ignored by Python.
+
+```
+my_regrx = re.compile(r'''(
+    <group>      # line comments
+    <group>      # line comments
+    <...>        # ...   
+    )''', re.VERBOSE)
+```
+
+Note that you should use triple quotes is this case to create multiline string to make the regex much more legible.
+
+### Combine `re.IGNORECASE`, `re.DOTALL` and `re.VERBOSE`
+
+Unfortunately, the `re.compile()` function takes only a single value as its second argument. You can get around this limitation by compiling the `re.IGNORECASE`, `re.DOTALL`, and `re.VERBOSE` variables using the pipe character (`|`), which in this context is known as the `bitwise or` operator.  
+
+(THE END)

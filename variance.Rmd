@@ -1,0 +1,33 @@
+## Variance
+
+### $Var(aX)$
+
+$$
+\begin{eqnarray*}
+Var(aX) 
+ & = & E((aX)^2)) - (E(aX))^2\\
+ & = & E(a^2X^2) - (aE(X))^2\\
+ & = & a^2E(X^2) - a^2(E(X))^2\\
+ & = & a^2Var(X)
+\end{eqnarray*}
+$$
+
+### $Var(\bar X)$
+
+$$
+\begin{eqnarray*}
+Var(\bar X) 
+ & = & Var(\frac{\sum X_i}{n})\\
+ & = & \frac{1}{n^2} Var(\sum X_i)\\
+ & = & \frac{1}{n^2} \sum \sigma^2\\
+ & = & \frac{\sigma^2}{n}
+\end{eqnarray*}
+$$
+
+
+### Chebyshev's inequality
+
+The probability that a random variable $X$ is at least $k$ standard deviations from its mean is less than $1 / k^2$. In other words, the probability that $X$ is at least 2 standard deviations from the mean is less than 1/4, 3 standard deviations 1/9, 4 standard deviations 1/16, etc.
+
+(THE END)
+

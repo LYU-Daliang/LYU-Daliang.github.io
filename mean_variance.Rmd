@@ -1,0 +1,27 @@
+## The standard error of the mean
+
+The viriance of sample mean is:
+$$
+Var(\bar X) = \frac{\sigma^2}{n}
+$$
+where $\sigma^2$ is the variance of the population being sampled from.
+
+The standard deviation, a.k.a. the standard error of the mean is the square root of the variance of the mean, i.e., $\frac{\sigma}{\sqrt n}$. The logical estimate of the standard error is $\frac{S}{\sqrt n}$, where $S$ is the standard deviation of the sample.
+
+### Standard normals
+
+Standard normals have variance of 1, and they have standard deviation of $\frac{1}{\sqrt n}$.
+
+### Uniform density
+
+Standard uniforms have variance $\frac{1}{12}$, so the means of random samples of n uniforms have sd $\frac{1}{\sqrt {12\times n}}$.
+
+### Poisson
+
+$Poisson(\lambda)$ random variables  have variace $\lambda$, so means of random samples of n $Poisson(\lambda)$ should have standard deviation $\frac{\sqrt \lambda}{\sqrt n}$.
+
+### Coin flips
+
+The variance of a coin flip is $p(1 - p)$, and the standard deviation of the average of n coin flips should be $\sqrt \frac{p(1 - p)}{n}$.
+
+(THE END)

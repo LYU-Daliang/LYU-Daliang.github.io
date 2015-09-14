@@ -1,0 +1,29 @@
+## `tidyr`
+
+### `gather()`
+
+`gather()` takes multiple columns and collapses into key-value pairs, duplicating all other columns as needed. You use `gather()` when you notice that you have columns that are not variables. (`gather()` turns names to values of the key)
+
+**NOTE**: `gather()` can sometime do the same thing `melt()` from `reshape2` does, e.g., `melt(airquality, id.vars = c('Month', 'Day'))` is equivalent to `gather(airquality, variable, value, -Month, -Day)`.
+
+### `spread()`
+
+`spread()` spreads a key-value pair across multiple columns.
+
+**NOTE**: `spread()` and `gather()` are complements. (`spread()` turns values of the key to column names)
+
+### `separate()`
+
+Given either regular expression or vector of character positions, `separate()` turns a single character column into multiple columns.
+
+### `extract_numeric()`
+
+`extract_numeric()` strips all non-numeric character from a string and then coerces the result to a number. This is useful for strings that are numbers with extra formatting. (`extract_numeric('$1,200.34') = 1200.34`)
+
+### `bind_rows()`
+
+Binding many data frames into one.
+
+**NOTE**: Actually, `bind_rows()` is a function defined in `dplyr`, not `tidyr`.
+
+(THE END)
